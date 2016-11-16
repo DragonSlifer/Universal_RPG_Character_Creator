@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package character.creator;
+package universal_rpg_character_creator;
 
 import Controller.Controller;
 import Model.Model;
@@ -14,7 +14,7 @@ import java.io.IOException;
  *
  * @author Jorge
  */
-public class CharacterCreator {
+public class UniversalRPGCharacterCreator {
 
     /**
      * @param args the command line arguments
