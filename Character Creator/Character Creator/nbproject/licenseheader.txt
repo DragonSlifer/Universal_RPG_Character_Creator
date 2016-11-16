@@ -1,0 +1,11 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix} Role Game Character Creator
+${licensePrefix} Con este programa podrás crear
+${licensePrefix} fichas de rol para varios sistemas de
+${licensePrefix} juego, como el Mundo de Tinieblas o
+${licensePrefix} el NSD20
+<#if licenseLast??>
+${licenseLast}
+</#if>
