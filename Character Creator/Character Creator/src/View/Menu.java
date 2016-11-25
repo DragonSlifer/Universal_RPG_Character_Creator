@@ -16,8 +16,8 @@ import javax.swing.JMenuItem;
  */
 public class Menu extends JMenuBar {
 
-    JMenu Inicio, Ayuda, Herramientas;
-    JMenuItem Cargar, Guardar, Salir, HowTo, Creditos, SimuladorLeveleo, Ini;
+    private JMenu Inicio, Ayuda, Herramientas;
+    private JMenuItem Cargar, Guardar, Salir, HowTo, Creditos, SimuladorLeveleo, Ini;
 
     public Menu() {
         Inicio = new JMenu("Inicio");

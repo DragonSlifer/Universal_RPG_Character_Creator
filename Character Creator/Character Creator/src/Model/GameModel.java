@@ -20,7 +20,8 @@ public abstract class GameModel {
      */
     private String name, player, ClassName;
     private Date fecha_de_creacion, fecha_de_modificacion;
-
+    private final static String binPath = "./src/bin";
+    
     public GameModel(String cn) {
         if (!cn.equals(null))
             ClassName = cn;
@@ -72,34 +73,12 @@ public abstract class GameModel {
     public void setClassName(String ClassName) {
         this.ClassName = ClassName;
     }
+
+    public static String getBinPath() {
+        return binPath;
+    }
     
     /**
      * Otros metodos
      */
-
-    /**
-     * Procesa el camino y devuelve la ruta de este
-     * @param path
-     * @return
-     */
-    public String processPath(String path) {
-        boolean finished = false;
-        int i = 0;
-        String aux = "", aux2 = "";
-        while (finished == false) {
-            i++;
-            do {
-                aux2 += path.charAt(i);
-                i++;
-            } while (path.charAt(i) != '/');
-            aux = aux + "/" + aux2;
-            aux2 = "";
-            if (aux.contains("Character Creator")) {
-                finished = true;
-            }
-        }
-        aux = aux + "/Bin";
-        path = aux;
-        return path;
-    }
 }

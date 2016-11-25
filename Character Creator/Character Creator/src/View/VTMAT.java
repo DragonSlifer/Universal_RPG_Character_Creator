@@ -23,10 +23,10 @@ import javax.swing.JTextField;
  */
 class VTMAT extends JPanel {
 
-    JPanel Fisicos, Sociales, Mentales;
-    JTextField Fuerza, Resistencia, Destreza, Carisma, Manipulacion, Apariencia, Inteligencia, Percepcion, Astucia;
-    JComboBox F,S,M;
-    JButton Comprobar;
+    private JPanel Fisicos, Sociales, Mentales;
+    private JTextField Fuerza, Resistencia, Destreza, Carisma, Manipulacion, Apariencia, Inteligencia, Percepcion, Astucia;
+    private JComboBox F,S,M;
+    private JButton Comprobar;
 
     public VTMAT() {
         Fisicos = new JPanel();

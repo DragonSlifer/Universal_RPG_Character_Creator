@@ -34,8 +34,9 @@ public final class PanelPrincipal extends JPanel {
     public JComboBox categorias;
     public JTextField jugador, personaje, cronica;
     public JButton aceptar;
-    Vector<String> sc;
-    String[][] sj;
+    private Vector<String> sc;
+    private String[][] sj;
+    private final static String binPath = "./src/bin";
 
     public PanelPrincipal() {
         String linea;
@@ -47,7 +48,7 @@ public final class PanelPrincipal extends JPanel {
 
         try {
 
-            fread = new File(processPath(path) + "/games.rpg");
+            fread = new File(binPath + "/games.rpg");
             bread = new BufferedReader(new InputStreamReader(new FileInputStream(fread), "ISO-8859-1"));
 
             sj = new String[CMax][JMax];
@@ -108,27 +109,6 @@ public final class PanelPrincipal extends JPanel {
             Logger.getLogger(PanelPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-    }
-
-    private String processPath(String path) {
-        boolean finished = false;
-        int i = 0;
-        String aux = "", aux2 = "";
-        while (finished == false) {
-            i++;
-            do {
-                aux2 += path.charAt(i);
-                i++;
-            } while (path.charAt(i) != '/');
-            aux = aux + "/" + aux2;
-            aux2 = "";
-            if (aux.contains("Character Creator")) {
-                finished = true;
-            }
-        }
-        aux = aux + "/Bin";
-        path = aux;
-        return path;
     }
 
     public void ChangeComboBox() {

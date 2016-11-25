@@ -20,8 +20,8 @@ import javax.swing.JTextField;
  * @author Jorge
  */
 public class SimuladorLeveleoCthulhu extends JPanel {
-    JTextField base, numcriticos, nivelactual;
-    JButton subirnivel;
+    private JTextField base, numcriticos, nivelactual;
+    private JButton subirnivel;
     
     public SimuladorLeveleoCthulhu(){
         base = new JTextField();

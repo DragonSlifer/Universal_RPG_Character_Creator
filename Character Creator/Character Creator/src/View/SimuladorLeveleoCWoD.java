@@ -26,9 +26,9 @@ import javax.swing.JPanel;
  */
 public class SimuladorLeveleoCWoD extends JPanel {
 
-    int[] valores;                              ///< Valores del leveleo.
-    String[] juegos = {"Vampiro", "Hombre Lobo", "Demonio", "Mago", "Changeling", "Cazador"};
-    JComboBox tipo, nivelbase, nivelasubir, juego;
+    private int[] valores;                              ///< Valores del leveleo.
+    private String[] juegos = {"Vampiro", "Hombre Lobo", "Demonio", "Mago", "Changeling", "Cazador"};
+    private JComboBox tipo, nivelbase, nivelasubir, juego;
 
     public SimuladorLeveleoCWoD() {
         juego = new JComboBox(juegos);
