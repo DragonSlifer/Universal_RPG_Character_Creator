@@ -27,7 +27,7 @@ public class Model {
     
     private Vector<User> Masters;
     private GameModel gameModel;
-    private static String binPath = "./src/bin";
+    private static final String binPath = "./src/bin";
 
     public Model() throws UnsupportedEncodingException, IOException {
         

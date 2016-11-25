@@ -70,8 +70,8 @@ public class VTM extends GameModel {
             Random r = new Random();    ///< Genero un numero aleatorio
             int a, b, c;                ///< Guarda el orden de las clases de numeros aleatorios
             boolean end = false;
-            String path = System.getProperty("user.dir");
-            path = processPath(path);
+            String path;
+            path = getBinPath();
             selectRandomClan(r.nextInt(58) + 1, path + "/VTM/VTM_Clans.rpg");
             while (atr_class.size() != 3) {
                 int aux = r.nextInt(3) + 1;
