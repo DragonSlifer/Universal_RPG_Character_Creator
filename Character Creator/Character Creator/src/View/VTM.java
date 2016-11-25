@@ -27,45 +27,50 @@ import javax.swing.JTextField;
  * @author Jorge
  */
 public class VTM extends JPanel {
+
     /**
      * Tamaño
      */
-    static final int WCOORD = 1209;
-    static final int HCOORD = 250;
+    private static final int WCOORD = 1209;
+    private static final int HCOORD = 250;
     /**
      * Información básica
      */
-    JComboBox Rango;                    ///< Neonato, Ancilla, Antiguo, Matusanal, Antediluviano,... (VTM_Ranks.rpg)
-    JComboBox Senda;                    ///< Sendas de la iluminación. (VTM_Ilumination_Paths.rpg)
-    JComboBox Disciplinas;              ///< Disciplinas. Incluye todas las disciplinas (VTM_Disciplines.rpg)
-    JTextField Puntos_de_Experiencia;
-    JTextField Puntos_Gratuitos;
+    private JComboBox Rango;                    ///< Neonato, Ancilla, Antiguo, Matusanal, Antediluviano,... (VTM_Ranks.rpg)
+    private JComboBox Senda;                    ///< Sendas de la iluminación. (VTM_Ilumination_Paths.rpg)
+    private JComboBox Disciplinas;              ///< Disciplinas. Incluye todas las disciplinas (VTM_Disciplines.rpg)
+    private JTextField Puntos_de_Experiencia;
+    private JTextField Puntos_Gratuitos;
     /**
      * Paneles
      */
-    JTabbedPane tabedPane;              ///< Panel principal
-    JPanel expPanel;                    ///< Panel de experiencia y puntos gratuitos
-    VTMBI vtmbi;                        ///< Panel de información básica    
-    VTMAT vtmat;                        ///> Panel de atributos
+    private JTabbedPane tabedPane;              ///< Panel principal
+    private JPanel expPanel;                    ///< Panel de experiencia y puntos gratuitos
+    private VTMBI vtmbi;                        ///< Panel de información básica    
+    private VTMAT vtmat;                        ///> Panel de atributos
+    /**
+     * Carga de datos
+     */
+    private final static String binPath = "./src/bin";
     /**
      * Datos cargados
      */
-    Vector<String> Clans;
-    Vector<String> Disciplines;
-    Vector<String> Paths;
-    Vector<String> OtherPaths;          ///< Sendas de taumaturgia, nigromancia...
-    Vector<String> Rituals;             ///< Guarda los rituales de una categoria
-    Vector<String> Afiliations;
-    Vector<String> Concepts;
-    Vector<String> Nature;
-    Vector<String> Demeanor;
-    Vector<String> Ranks;
-    Vector<String> Backgrounds;
+    private Vector<String> Clans;
+    private Vector<String> Disciplines;
+    private Vector<String> Paths;
+    private Vector<String> OtherPaths;          ///< Sendas de taumaturgia, nigromancia...
+    private Vector<String> Rituals;             ///< Guarda los rituales de una categoria
+    private Vector<String> Afiliations;
+    private Vector<String> Concepts;
+    private Vector<String> Nature;
+    private Vector<String> Demeanor;
+    private Vector<String> Ranks;
+    private Vector<String> Backgrounds;
 
     /**
      * Misc.
      */
-    Font Morpheus;
+    private Font Morpheus;
 
     public VTM() {
         /**
@@ -98,7 +103,7 @@ public class VTM extends JPanel {
              * Carga de los ComboBox
              */
             String path = System.getProperty("user.dir");
-            path = processPath(path);
+            path = binPath;
             Clans = readClans(path + "/VTM/VTM_Clans.rpg");
             Afiliations = readAfiliations(path + "/VTM/VTM_Afiliations.rpg");
             Disciplines = readDisciplines(path + "/VTM/VTM_Disciplines.rpg");
@@ -139,6 +144,7 @@ public class VTM extends JPanel {
 
     /**
      * Lee todos los clanes del fichero de clanes
+     *
      * @param path
      * @return
      * @throws FileNotFoundException
@@ -354,7 +360,7 @@ public class VTM extends JPanel {
             default:
                 nameDiscipline = nameDiscipline.replace(' ', '_');
         }
-        String path = processPath(System.getProperty("user.dir"));
+        String path = binPath;
         file = new File(path + "/VTM/VTM_Sendas_" + nameDiscipline + ".rpg");
         bread = new BufferedReader(new InputStreamReader(new FileInputStream(file), "ISO-8859-1"));
         while ((linea = bread.readLine()) != null) {
@@ -363,32 +369,6 @@ public class VTM extends JPanel {
         }
 
         return Path;
-    }
-
-    /**
-     * Procesa el camino y devuelve la ruta de este
-     * @param path
-     * @return
-     */
-    private String processPath(String path) {
-        boolean finished = false;
-        int i = 0;
-        String aux = "", aux2 = "";
-        while (finished == false) {
-            i++;
-            do {
-                aux2 += path.charAt(i);
-                i++;
-            } while (path.charAt(i) != '/');
-            aux = aux + "/" + aux2;
-            aux2 = "";
-            if (aux.contains("Character Creator")) {
-                finished = true;
-            }
-        }
-        aux = aux + "/Bin";
-        path = aux;
-        return path;
     }
 
     public int getWcoord() {
@@ -405,7 +385,7 @@ public class VTM extends JPanel {
 
     public boolean Comprobar(String command) {
         boolean retval = false;
-        switch (command){
+        switch (command) {
             case "VTMCompVTMAT":
                 retval = vtmat.Comprobar();
                 break;
