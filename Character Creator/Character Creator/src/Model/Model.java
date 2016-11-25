@@ -27,6 +27,7 @@ public class Model {
     
     private Vector<User> Masters;
     private GameModel gameModel;
+    private static String binPath = "./src/bin";
 
     public Model() throws UnsupportedEncodingException, IOException {
         
@@ -41,9 +42,8 @@ public class Model {
         BufferedReader bread;
         String linea;
         int i = 0;
-        String path = System.getProperty("user.dir");
-
-        fread = new File(processPath(path) + "/Masters.rpg");
+        
+        fread = new File(binPath + "/Masters.rpg");
         bread = new BufferedReader(new InputStreamReader(new FileInputStream(fread), "ISO-8859-1"));
         while ((linea = bread.readLine()) != null) {
             if ((i % 2) == 0) {               ///< Significa Usuario
@@ -59,8 +59,8 @@ public class Model {
 
     public void AddMasterInfo(String user, String pass) throws IOException {
         FileWriter fw;
-        String path = System.getProperty("user.dir");
-        fw = new FileWriter(processPath(path) + "/Masters.rpg", true);
+        
+        fw = new FileWriter(binPath + "/Masters.rpg", true);
         fw.write(user);
         fw.write("\n");
         fw.write(pass);
@@ -96,26 +96,26 @@ public class Model {
         return actual;
     }
 
-    private String processPath(String path) {
-        boolean finished = false;
-        int i = 0;
-        String aux = "", aux2 = "";
-        while (finished == false) {
-            i++;
-            do {
-                aux2 += path.charAt(i);
-                i++;
-            } while (path.charAt(i) != '/');
-            aux = aux + "/" + aux2;
-            aux2 = "";
-            if (aux.contains("Character Creator")) {
-                finished = true;
-            }
-        }
-        aux = aux + "/Bin";
-        path = aux;
-        return path;
+    /*private String processPath(String path) {
+    boolean finished = false;
+    int i = 0;
+    String aux = "", aux2 = "";
+    while (finished == false) {
+    i++;
+    do {
+    aux2 += path.charAt(i);
+    i++;
+    } while (path.charAt(i) != '/');
+    aux = aux + "/" + aux2;
+    aux2 = "";
+    if (aux.contains("Character Creator")) {
+    finished = true;
     }
+    }
+    aux = aux + "/Bin";
+    path = aux;
+    return path;
+    }*/
 
     public void setOtherModel(String juego) {
         juego = processJuego(juego);
@@ -132,8 +132,8 @@ public class Model {
 
     private String processJuego(String juego) {
         String retval = null;
-        String path = System.getProperty("user.dir");
-        path = processPath(path) + "/Files/Game_Equivalence.rpg";
+        
+        String path = binPath + "/Files/Game_Equivalence.rpg";
         
         try {
             File fread = new File(path);
