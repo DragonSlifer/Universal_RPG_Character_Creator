@@ -96,30 +96,8 @@ public class Model {
         return actual;
     }
 
-    /*private String processPath(String path) {
-    boolean finished = false;
-    int i = 0;
-    String aux = "", aux2 = "";
-    while (finished == false) {
-    i++;
-    do {
-    aux2 += path.charAt(i);
-    i++;
-    } while (path.charAt(i) != '/');
-    aux = aux + "/" + aux2;
-    aux2 = "";
-    if (aux.contains("Character Creator")) {
-    finished = true;
-    }
-    }
-    aux = aux + "/Bin";
-    path = aux;
-    return path;
-    }*/
-
-    public void setOtherModel(String juego) {
+        public void setOtherModel(String juego) {
         juego = processJuego(juego);
-        if(juego.equals(gameModel.getClassName()))
         switch(juego){
             case "VTM":
                 gameModel = new VTM("VTM");
