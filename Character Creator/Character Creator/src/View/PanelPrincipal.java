@@ -34,8 +34,8 @@ public final class PanelPrincipal extends JPanel {
     public JComboBox categorias;
     public JTextField jugador, personaje, cronica;
     public JButton aceptar;
-    Vector<String> sc;
-    String[][] sj;
+    private Vector<String> sc;
+    private String[][] sj;
 
     public PanelPrincipal() {
         String linea;

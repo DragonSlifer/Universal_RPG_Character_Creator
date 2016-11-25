@@ -40,7 +40,10 @@ public class View extends JFrame {
         p.add(pp, "PP");
         p.add(s, "SC");
         /**
-         * Paneles de Fichas de Juego | | V
+         * Paneles de Fichas de Juego 
+         * | 
+         * | 
+         * V
          */
         mtp = new Plenilunio();
         vtm = new VTM();

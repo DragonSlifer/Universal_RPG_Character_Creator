@@ -24,16 +24,16 @@ import javax.swing.SwingConstants;
  * @author Jorge
  */
 public class Plenilunio extends JPanel{
-    JTextField concepto;
-    JSpinner fortaleza, combate, voluntad, astucia, sutileza, presencia, cultura, aguante, destino; 
+    private JTextField concepto;
+    private JSpinner fortaleza, combate, voluntad, astucia, sutileza, presencia, cultura, aguante, destino; 
     
-    int puntosrest;
-    int maxnorm;        ///< Maximo dones,armas y/o equipo
+    private int puntosrest;
+    private int maxnorm;        ///< Maximo dones,armas y/o equipo
     /** Contendran un maximo delimitado (este maximo se podra "exceder" con la masterpass) **/
-    JTextField[] dones;
-    JTextField[] armas;
-    JTextField[] equipo;
-    JButton override;
+    private JTextField[] dones;
+    private JTextField[] armas;
+    private JTextField[] equipo;
+    private JButton override;
     
     public Plenilunio(){
         JPanel ficha = new JPanel();

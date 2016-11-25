@@ -21,15 +21,15 @@ import javax.swing.JTextField;
  */
 public class VTMBI extends JPanel {
 
-    JComboBox Clan;                     ///< Incluye antitribus, lineas de sangre y variaciones (VTM_Clans.rpg)
-    JComboBox Afiliacion;               ///< Camarilla, Sabbat, Anarquistas, Independientes, Nodistas,... (VTM_Afiliation.rpg)
-    JComboBox Concepto;                 ///< Conceptos. Se pueden agregar nuevos a traves del fichero (VTM_Concepts.rpg)
-    JComboBox Naturaleza;               ///< Naturaleza. Se pueden agregar nuevos a traves del fichero (VTM_Nature.rpg)
-    JComboBox Conducta;                 ///< Conducta. Se pueden agregar nuevos a traves del fichero (VTM_Demeanor.rpg)
-    JComboBox Generacion;               ///< Generación del personaje
-    JTextField Nombre;                  ///< Nombre del personaje
-    JTextField Jugador;                 ///< Nombre del jugador
-    JTextField Cronica;                 ///< Nombre de la crónica
+    private JComboBox Clan;                     ///< Incluye antitribus, lineas de sangre y variaciones (VTM_Clans.rpg)
+    private JComboBox Afiliacion;               ///< Camarilla, Sabbat, Anarquistas, Independientes, Nodistas,... (VTM_Afiliation.rpg)
+    private JComboBox Concepto;                 ///< Conceptos. Se pueden agregar nuevos a traves del fichero (VTM_Concepts.rpg)
+    private JComboBox Naturaleza;               ///< Naturaleza. Se pueden agregar nuevos a traves del fichero (VTM_Nature.rpg)
+    private JComboBox Conducta;                 ///< Conducta. Se pueden agregar nuevos a traves del fichero (VTM_Demeanor.rpg)
+    private JComboBox Generacion;               ///< Generación del personaje
+    private JTextField Nombre;                  ///< Nombre del personaje
+    private JTextField Jugador;                 ///< Nombre del jugador
+    private JTextField Cronica;                 ///< Nombre de la crónica
 
     /**
      *
