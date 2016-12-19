@@ -5,7 +5,7 @@
  *  juego, como el Mundo de Tinieblas o
  *  el NSD20
  */
-package View;
+package View.WOD.VTM;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;

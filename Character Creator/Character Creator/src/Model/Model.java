@@ -24,25 +24,24 @@ import java.util.logging.Logger;
  */
 public class Model {
 
-    
     private Vector<User> Masters;
     private GameModel gameModel;
     private static final String binPath = "./src/bin";
 
     public Model() throws UnsupportedEncodingException, IOException {
-        
+
         Masters = new Vector<>();
         ReadMasterInfo();
+        
     }
 
-    
     public void ReadMasterInfo() throws FileNotFoundException, UnsupportedEncodingException, IOException {
         User aux = new User();
         File fread;
         BufferedReader bread;
         String linea;
         int i = 0;
-        
+
         fread = new File(binPath + "/Masters.rpg");
         bread = new BufferedReader(new InputStreamReader(new FileInputStream(fread), "ISO-8859-1"));
         while ((linea = bread.readLine()) != null) {
@@ -59,7 +58,7 @@ public class Model {
 
     public void AddMasterInfo(String user, String pass) throws IOException {
         FileWriter fw;
-        
+
         fw = new FileWriter(binPath + "/Masters.rpg", true);
         fw.write(user);
         fw.write("\n");
@@ -96,23 +95,23 @@ public class Model {
         return actual;
     }
 
-        public void setOtherModel(String juego) {
+    public void setOtherModel(String juego) {
         juego = processJuego(juego);
-        switch(juego){
+        switch (juego) {
             case "VTM":
                 gameModel = new VTM("VTM");
                 System.out.println("Model -- setOtherModel -- Nuevo Modelo de Juego: " + juego);
                 break;
             default:
-               System.out.println("Model -- setOtherModel -- Error: Juego no Registrado");
+                System.out.println("Model -- setOtherModel -- Error: Juego no Registrado");
         }
     }
 
     private String processJuego(String juego) {
         String retval = null;
-        
+
         String path = binPath + "/Files/Game_Equivalence.rpg";
-        
+
         try {
             File fread = new File(path);
             BufferedReader bread = new BufferedReader(new InputStreamReader(new FileInputStream(fread), "ISO-8859-1"));
@@ -124,7 +123,7 @@ public class Model {
                 if ((i % 2) == 0) {               ///< Significa Juego
                     aux = linea;
                 } else if ((i % 2) != 0) {        ///< Significa Abreviatura
-                    if (aux == null ? juego == null : aux.equals(juego)){
+                    if (aux == null ? juego == null : aux.equals(juego)) {
                         retval = linea;
                         System.out.println("Model -- processJuego -- Abreviatura Encontrada: " + linea);
                         STOP = true;
@@ -138,6 +137,10 @@ public class Model {
             Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
         }
         return retval;
+    }
+
+    public void processOtherModelCommand(String command, Vector<String> params) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private static class User {

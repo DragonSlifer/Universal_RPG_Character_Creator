@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package View.WOD.VTM;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -47,11 +47,12 @@ public class VTM extends JPanel {
     private JTabbedPane tabedPane;              ///< Panel principal
     private JPanel expPanel;                    ///< Panel de experiencia y puntos gratuitos
     private VTMBI vtmbi;                        ///< Panel de información básica    
-    private VTMAT vtmat;                        ///> Panel de atributos
+    private VTMAT vtmat;                        ///< Panel de atributos
+    private VTMHB vtmhb;                        ///< Panel de habilidades
     /**
      * Carga de datos
      */
-    private final static String binPath = "./src/bin";
+    private final static String binPath = "./src/bin/WOD";  ///< Ruta a la carpeta de World Of Darkness
     /**
      * Datos cargados
      */
@@ -136,8 +137,11 @@ public class VTM extends JPanel {
         vtmbi = new VTMBI(Clans, Afiliations, Concepts, Nature, Demeanor);
         vtmbi.setMainFont(Morpheus);
         vtmat = new VTMAT();
+        vtmhb = new VTMHB();
+        
         tabedPane.addTab("Info Básica", vtmbi);
         tabedPane.addTab("Atributos", vtmat);
+        tabedPane.addTab("Habilidades",vtmhb);
 
         this.add(tabedPane, "Center");
     }
@@ -391,6 +395,18 @@ public class VTM extends JPanel {
                 break;
         }
         return retval;
+    }
+
+    public Vector<String> processVTMCommand(String command, Vector<String> params) {
+        Vector<String> result = new Vector<>();
+        
+        switch (command){
+            case "CLAN_UPDATE":
+                result.add((String)vtmbi.getClan().getSelectedItem()); ///< Obtenemos el clan y lo agregamos al vector
+                break;
+        }
+        
+        return result;
     }
 
 }

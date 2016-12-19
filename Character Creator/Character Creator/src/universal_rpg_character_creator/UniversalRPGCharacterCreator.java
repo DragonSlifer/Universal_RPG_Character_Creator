@@ -18,6 +18,7 @@ public class UniversalRPGCharacterCreator {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
         Model modelo;
@@ -25,11 +26,12 @@ public class UniversalRPGCharacterCreator {
 
         View vista;
         vista = new View("Rol v0.1");
+        
 
         Controller controlador = new Controller(vista, modelo);
 
-        vista.setVisible(true);
         
+        vista.setVisible(true);
     }
 
 }

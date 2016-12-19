@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Vector;
 
 /**
  *
@@ -36,6 +37,7 @@ public class Controller {
         vista.ChangeSize(900, 120);
         vista.setResize(false);
     }
+
 
     private static class ActionListeners implements ActionListener {
 
@@ -86,6 +88,10 @@ public class Controller {
                     if (retval == false){
                         System.out.println("Controlller -- " + command + " have failed! There's some mistakes!");
                     }
+                    break;
+                case "VTM_CLAN_UPDATE":
+                    Vector<String> param = vista.proccessViewCommand("VTM_CLAN_UPDATE",null);
+                    modelo.processOtherModelCommand("VTM_CLAN_UPDATE",param);
                     break;
                 default:
                     System.out.println(" not recognized");

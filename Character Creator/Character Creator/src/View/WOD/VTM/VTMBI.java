@@ -5,10 +5,11 @@
  *  juego, como el Mundo de Tinieblas o
  *  el NSD20
  */
-package View;
+package View.WOD.VTM;
 
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import java.util.Vector;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -126,4 +127,11 @@ public class VTMBI extends JPanel {
         Cronica.setFont(Morpheus);
     }
 
+    public void setActionListeners(ActionListener al){
+        Clan.setActionCommand("VTM_CLAN_UPDATE");
+        Clan.addActionListener(al);
+        
+    }
+    
+    
 }

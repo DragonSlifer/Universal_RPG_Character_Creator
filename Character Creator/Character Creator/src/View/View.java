@@ -5,9 +5,11 @@
  */
 package View;
 
+import View.WOD.VTM.VTM;
 import java.awt.CardLayout;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -161,5 +163,19 @@ public class View extends JFrame {
         return retval;
     }
 
-    
+    public Vector<String> proccessViewCommand(String command, Vector<String> params){
+        Vector<String> result = new Vector<>();
+        String shortcommand = command.substring(0, 2);      ///< Se extrae el comando de ventana
+        String individualcommand = command.substring(3);    ///< Se extrae el comando de panel
+        switch(shortcommand){
+            case "VTM":
+                result = vtm.processVTMCommand(individualcommand,params);
+                break;
+            default:
+                System.out.println("View -- processViewCommand -- Command Not Recognized");
+                break;
+        }
+        
+        return result;
+    }
 }
